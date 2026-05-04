@@ -1,0 +1,6 @@
+node_modules/
+dist/
+qa-screenshots/
+qa-report-*.md
+*.log
+.env
