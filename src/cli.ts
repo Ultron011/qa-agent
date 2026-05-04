@@ -112,6 +112,4 @@ program
     }
   });
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  program.parseAsync(process.argv);
-}
+program.parseAsync(process.argv);

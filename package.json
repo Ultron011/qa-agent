@@ -1,7 +1,7 @@
 {
-  "name": "qa-agent",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@ultron011/qa-agent",
+  "version": "0.1.0",
+  "description": "Autonomous QA testing agent — crawls deployed sites, runs Playwright tests (visual, functional, console, a11y, performance), generates bug reports and code fixes via Claude Code CLI.",
   "type": "module",
   "bin": { "qa-agent": "./dist/cli.js" },
   "scripts": {
@@ -9,16 +9,23 @@
     "dev": "tsx src/cli.ts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepare": "tsc",
+    "prepublishOnly": "tsc",
     "postinstall": "playwright install chromium"
   },
   "files": [
     "dist",
     "README.md"
   ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ultron011/qa-agent.git"
+  },
+  "homepage": "https://github.com/Ultron011/qa-agent#readme",
+  "bugs": "https://github.com/Ultron011/qa-agent/issues",
+  "keywords": ["qa", "testing", "playwright", "claude", "cli", "automation", "accessibility"],
+  "author": "Ultron011",
+  "license": "MIT",
+  "engines": { "node": ">=20" },
   "dependencies": {
     "@axe-core/playwright": "^4.11.3",
     "chalk": "^5.6.2",
