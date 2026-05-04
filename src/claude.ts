@@ -7,13 +7,16 @@ export interface ClaudeOptions {
 
 export async function runClaude(prompt: string, opts: ClaudeOptions = {}): Promise<string> {
   const { timeoutMs = 120_000, cwd } = opts;
-  const result = await execa('claude', ['-p', prompt], {
+  const result = await execa('claude', ['-p'], {
     cwd,
     timeout: timeoutMs,
     reject: false,
+    input: prompt,
+    shell: false,
   });
   if (result.exitCode !== 0) {
-    throw new Error(`claude exited with code ${result.exitCode}: ${result.stderr}`);
+    const stderr = result.stderr || '(no stderr)';
+    throw new Error(`claude exited with code ${result.exitCode ?? 'unknown'}: ${stderr}`);
   }
   return result.stdout.trim();
 }
